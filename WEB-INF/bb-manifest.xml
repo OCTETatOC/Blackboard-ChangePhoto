@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<manifest>
+  <!-- core extension information -->
+  <plugin>
+    <name value= "OCTET Photo Module"/>
+    <handle value= "octetphoto"/>
+    <description value= "Photo Module Plugin "/>
+    <version value= "2.0.0.0"/>
+    <requires>
+    	<bbversion value="9.1"/>
+    </requires>
+    <vendor>
+      <id value="octt"/>
+      <name value="OCTET"/>
+      <url value="http://www.oberlin.edu/octet/" />
+      <description value="Oberlin Center for Technologically Enhanced Teaching." />
+    </vendor>
+    <http-actions>
+      <remove value="admin/remove.jsp"/>
+    </http-actions>
+		
+		
+		<module-defs>
+			<module-type ext-ref="module" title="User Photo-Info (OCTET) " uicreatable="true">
+			<jsp-dir>module</jsp-dir>
+			<jsp>
+				<view>view.jsp</view>
+				<edit>changePhoto.jsp</edit>
+			</jsp>
+			</module-type>
+			<module type="module" isadmin="false" useraddable="true" isdeletable="true" isdetachable="false" title="My Info ">
+				<description format="S"></description>
+				<ExtraInfo/>
+				<module-groups>
+					<module-group id="everyone"/>
+				</module-groups>
+			</module>
+		</module-defs>
+		
+	 <permissions>
+        <permission type="attribute" name="user.authinfo" actions="get" />
+        <permission type="attribute" name="user.personalinfo" actions="get" />
+		<permission type="persist" name="Content" actions="create,modify,delete"/>
+      </permissions>
+	</plugin>
+</manifest>
